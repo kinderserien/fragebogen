@@ -40,25 +40,24 @@
     #content::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -50%; /* größer machen für Rotation */
   padding: 6px;
-  background: linear-gradient(to right, red, yellow, green, blue, blue ,green,yellow,red);
-  background-size: 200% 100%;
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-	border-radius: 10px;
-    animation: randVerlaufBewegt 4s infinite linear;
+
+  background: conic-gradient(
+    red, yellow, green, blue, red
+  );
+
+  border-radius: 50%;
+
+  animation: drehen 4s infinite linear;
 }
-    
-    @keyframes randVerlaufBewegt {
+
+@keyframes drehen {
   0% {
-    background-position: 0% 50%;
+    transform: rotate(0deg);
   }
   100% {
-    background-position: 100% 50%;
+    transform: rotate(360deg);
   }
 }
     

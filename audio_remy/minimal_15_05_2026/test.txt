@@ -1,0 +1,1 @@
+heir sind die absolut minimalen versionen drin, bei denen alles rausgekürzt wurde, was nciht für den output gebraucht wurde

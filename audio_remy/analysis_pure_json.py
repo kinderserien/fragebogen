@@ -90,7 +90,7 @@ def normalize_centered(x):
     return (x - np.mean(x)) / (np.std(x) + 1e-9)
 
 
-def export_analysis_json(t_onsets, intensities, rms_at_onsets, t_pitch, pitch_n, f0, t_rms, rms_db, output_dir="."):
+def export_analysis_json(t_onsets, intensities, rms_at_onsets, t_pitch, pitch_n, f0, output_dir="."):
     os.makedirs(output_dir, exist_ok=True)
 
     duration = float(t_onsets[-1]) if len(t_onsets) > 0 else 0.0
@@ -129,25 +129,9 @@ def export_analysis_json(t_onsets, intensities, rms_at_onsets, t_pitch, pitch_n,
         ]
     }
 
-    rms_data = {
-        "sample_count": len(t_rms),
-        "rms": [
-            {"index": i, "time_seconds": round(float(t), 4), "rms_db": round(float(r), 4)}
-            for i, (t, r) in enumerate(zip(t_rms, rms_db))
-        ]
-    }
-
-    combined_data = {
-        "onset": onset_data,
-        "pitch": pitch_data,
-        "rms":   rms_data
-    }
-
     files = {
-        "onset.json":    onset_data,
-        "pitch.json":    pitch_data,
-        "rms.json":      rms_data,
-        "analysis.json": combined_data
+        "onset.json":  onset_data,
+        "pitch.json":  pitch_data
     }
 
     for filename, data in files.items():
@@ -173,7 +157,7 @@ def main():
 
     pitch_n = normalize_centered(f0)
 
-    export_analysis_json(t_onsets, intensities, rms_at_onsets, t_pitch, pitch_n, f0, t_rms, rms_db, output_dir=config.OUTPUT_DIR)
+    export_analysis_json(t_onsets, intensities, rms_at_onsets, t_pitch, pitch_n, f0, output_dir=config.OUTPUT_DIR)
 
 if __name__ == "__main__":
     main()

@@ -3,7 +3,7 @@ import librosa
 import soundfile as sf
 import json
 import os
-import Auswertung
+import auswertung
 
 
 class Config:
@@ -117,4 +117,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-    Auswertung.output()
+    auswertung.output()

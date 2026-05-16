@@ -85,12 +85,14 @@ def output():
     pitch_results = analyze_pitch_distribution(PITCH_JSON)
 
     aktivitäts_score = onset_results['activity_score']
+    akt_pro_min = onset_results['events_per_minute']
     unter_pitch = pitch_results['unter_pct']
     grenze_pitch = pitch_results['grenze_pct']
     ueber_pitch = pitch_results['ueber_pct']
 
     print("\n-----------------------------\n")
-    print(f"Activity Score: {aktivitäts_score}\n")
+    print(f"Activity Score: {aktivitäts_score}")
+    print(f"Soundeffekte pro Minute: {akt_pro_min}\n")
     print(f"Unter 180Hz/Männerstimme: {unter_pitch}%")
     print(f"Über 200Hz/Frauenstimme/Kinderstimme: {ueber_pitch}%")
     print(f"Grauzone 180-200Hz: {grenze_pitch}%")

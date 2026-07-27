@@ -1,6 +1,6 @@
 import os
 
-from analyse_main_24_07_26 import Config, analyze_file
+from Main_Analyse_27_07_26.py import Config, analyze_file
 
 # -------------KONFIGURATION-------------
 KORPUS_ORDNER = "korpus"      # Ordner mit den zu analysierenden Audiodateien

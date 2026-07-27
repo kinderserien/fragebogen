@@ -3,7 +3,7 @@ import librosa
 import soundfile as sf
 import json
 import os
-import analyse_auswertung_24_07_26 as Auswertung  # Importiert Auswertung_neu.py
+import Auswertung_Analyse_27_07_26 as Auswertung  # Importiert Auswertung_neu.py
 
 
 class Config:

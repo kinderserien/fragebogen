@@ -31,8 +31,8 @@ def analyze_onsets(path):
 
 #-------------PITCH-------------
 PITCH_JSON = "analysis_output/pitch.json"
-BORDER_LOW  = 180
-BORDER_HIGH = 200
+BORDER_LOW  = 155
+BORDER_HIGH = 165
 
 def analyze_pitch_distribution(path):
     """
@@ -425,9 +425,9 @@ def output():
     print("\n-----------------------------\n")
     print(f"Activity Score: {aktivitäts_score}")
     print(f"Soundeffekte pro Minute: {akt_pro_min}\n")
-    print(f"Unter 180Hz/Männerstimme: {unter_pitch}%")
-    print(f"Über 200Hz/Frauenstimme/Kinderstimme: {ueber_pitch}%")
-    print(f"Grauzone 180-200Hz: {grenze_pitch}%")
+    print(f"Unter 155Hz/Männerstimme: {unter_pitch}%")
+    print(f"Über 165Hz/Frauenstimme/Kinderstimme: {ueber_pitch}%")
+    print(f"Grauzone 155-165Hz: {grenze_pitch}%")
     print("\n-----------------------------\n")
 
     # -------- Aufmerksamkeits-Scores --------

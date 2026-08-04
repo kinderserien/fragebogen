@@ -8,7 +8,7 @@ BORDER_LOW = 155.0
 BORDER_HIGH = 165.0
 MAX_VCPM = 2000
 HALBTON_SCHWELLE = 1.0
-MAX_EPM = 275
+MAX_EPM = 300
 
 W_VCPM = 0.7
 W_RMS_VC = 0.3
@@ -18,7 +18,6 @@ W_RMS = 0.3
 W_STIMME_VALENZ = 2 / 12
 W_ACS = 4 / 12
 W_VCS = 6 / 12
-STIMME_GAIN = 1.0
 
 
 def analyze_onsets(path):
@@ -116,15 +115,15 @@ def calc_vcs(voice_change_results, max_vcpm=MAX_VCPM, w_vcpm=W_VCPM, w_rms=W_RMS
     return round(w_vcpm * vcpm_normiert + w_rms * (rms_linear * 100), 2)
 
 
-def calc_stimme_score(pitch_results, gain=STIMME_GAIN):
+def calc_stimme_score(pitch_results):
     diff = pitch_results["ueber_pct"] - pitch_results["unter_pct"]
-    return round(float(np.clip(50 + gain * diff, 0, 100)), 2)
+    return round(float(np.clip(50 + diff, 0, 100)), 2)
 
 
-def calc_activity_score_normiert(onset_results, max_epm=MAX_EPM, w_epm=W_EPM, w_rms=W_RMS):
+def calc_activity_score_normiert(onset_results, =, w_epm=W_EPM, w_rms=W_RMS):
     epm = onset_results["events_per_minute"]
     rms_linear = 10 ** (onset_results["rms_mean_at_onsets"] / 20)
-    epm_normiert = min(100, (epm / max_epm) * 100)
+    epm_normiert = min(100, (epm / ) * 100)
     return round(w_epm * epm_normiert + w_rms * (rms_linear * 100), 2)
 
 

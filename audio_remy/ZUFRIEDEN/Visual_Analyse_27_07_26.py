@@ -13,9 +13,9 @@ ONSET_JSON = "analysis_output/onset.json"
 PITCH_JSON = "analysis_output/pitch.json"
 
 # Feste Grenzen aus Auswertung_neu.py
-BORDER_LOW = 180.0  # Untere Grenze der Grauzone in Hz
-BORDER_HIGH = 200.0  # Obere Grenze der Grauzone in Hz
-CENTER_HZ = 190.0  # Mitte der Grauzone in Hz (Referenzlinie)
+BORDER_LOW = 155.0  # Untere Grenze der Grauzone in Hz
+BORDER_HIGH = 165.0  # Obere Grenze der Grauzone in Hz
+CENTER_HZ = 160.0  # Mitte der Grauzone in Hz (Referenzlinie)
 
 
 # ============================================================
